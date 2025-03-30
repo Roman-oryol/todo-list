@@ -1,0 +1,60 @@
+.task-details {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    margin-bottom: 32px;
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--color-black);
+  }
+}
+
+.task-header {
+  margin-bottom: 32px;
+
+  p + p {
+    margin-top: 16px;
+  }
+}
+
+.task-info {
+  line-height: var(--line-height-loose);
+}
+
+.task-actions {
+  display: flex;
+  column-gap: 12px;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.task-actions button {
+  display: grid;
+  place-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-bg-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-status-in-progress);
+  }
+
+  &:hover {
+    background-color: var(--color-priority-extreme);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}

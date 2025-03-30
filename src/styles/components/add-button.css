@@ -1,0 +1,19 @@
+.add-button {
+  display: grid;
+  place-content: center;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}

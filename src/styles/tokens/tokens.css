@@ -1,0 +1,45 @@
+:root {
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-secondary: 'Montserrat', sans-serif;
+
+  --font-size-xs: 1.2rem;
+  --font-size-sm: 1.3rem;
+  --font-size-md: 1.4rem;
+  --font-size-base: 1.6rem;
+  --font-size-lg: 2rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-loose: 1.8;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --color-bg-primary: #ff6767;
+  --color-bg-secondary: rgb(161 163 171 / 0.17);
+  --color-bg-body: #f5f8ff;
+
+  --color-border-primary: rgb(161 163 171 / 0.63);
+  --color-border-secondary: #a1a3ab;
+
+  --color-text-base: #747474;
+  --color-text-heading: #000000;
+  --color-text-light: #a1a3ab;
+
+  --color-priority-extreme: #f21e1e;
+  --color-priority-moderate: #3abeff;
+  --color-priority-low: #05a301;
+
+  --color-status-completed: #05a301;
+  --color-status-in-progress: #0225ff;
+  --color-status-not-started: #f21e1e;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+html {
+  font-size: 62.5%;
+}

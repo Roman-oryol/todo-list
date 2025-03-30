@@ -1,0 +1,34 @@
+.task-priority,
+.task-status {
+  font-size: var(--font-size-xs);
+  color: var(--color-black);
+}
+
+.task-priority .extreme {
+  color: var(--color-priority-extreme);
+}
+
+.task-priority .moderate {
+  color: var(--color-priority-moderate);
+}
+
+.task-priority .low {
+  color: var(--color-priority-low);
+}
+
+.task-status .not-started {
+  color: var(--color-status-not-started);
+}
+
+.task-status .in-progress {
+  color: var(--color-status-in-progress);
+}
+
+.task-status .completed {
+  color: var(--color-status-completed);
+}
+
+.task-due-date {
+  font-size: var(--font-size-xs);
+  color: #6e6b6b;
+}
