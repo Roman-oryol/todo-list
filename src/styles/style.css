@@ -9,10 +9,13 @@
 @import './components/task-meta.css';
 @import './components/task-card.css';
 @import './components/task-details.css';
+@import './components/task-modal.css';
+@import './components/add-list-modal.css';
 
 @import './layout/app-container.css';
 @import './layout/sidebar.css';
 @import './layout/main-content.css';
+@import './layout/main-header.css';
 @import './layout/tasks.css';
 
 body {

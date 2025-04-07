@@ -46,15 +46,20 @@
     fill: currentColor;
   }
 
-  &:focus-visible {
+  &:focus-visible:not(:disabled) {
     outline: 2px solid var(--color-status-in-progress);
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--color-priority-extreme);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
