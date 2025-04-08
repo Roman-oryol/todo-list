@@ -1,0 +1,62 @@
+.confirm-delete-modal {
+  border: none;
+  border-radius: 10px;
+  padding: 40px;
+  width: 500px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:open {
+    animation: dialog-fade-in 0.3s ease-out;
+  }
+
+  &:open::backdrop {
+    animation: backdrop-fade-in 0.3s ease-out forwards;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    color: var(--color-white);
+    padding: 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-black);
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+}
+
+.confirm-delete-modal .modal-header {
+  margin-bottom: 40px;
+}
+
+.confirm-delete-modal p {
+  margin-bottom: 40px;
+  font-size: var(--font-size-lg);
+}
+
+.confirm-delete-modal .modal-footer {
+  display: flex;
+  column-gap: 20px;
+}
+
+.confirm-button {
+  background-color: var(--color-bg-primary);
+
+  &:hover {
+    background-color: var(--color-priority-extreme);
+  }
+}
+
+.cancel-button {
+  background-color: var(--color-priority-moderate);
+
+  &:hover {
+    background-color: #2dacec;
+  }
+}
