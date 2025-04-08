@@ -25,6 +25,12 @@ class TaskManager {
     const index = this.tasks.indexOf(task);
     this.tasks.splice(index, 1);
   }
+
+  extractTaskForTransfer(task) {
+    const index = this.tasks.findIndex((t) => t.id === task.id);
+
+    return this.tasks.splice(index, 1)[0];
+  }
 }
 
 export default TaskManager;
