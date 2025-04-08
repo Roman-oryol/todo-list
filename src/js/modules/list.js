@@ -49,4 +49,9 @@ export default class List {
   getActiveTask() {
     return this.taskList.find((task) => task.isSelected);
   }
+
+  extractTaskForTransfer() {
+    const activeTask = this.getActiveTask();
+    return this.#taskManager.extractTaskForTransfer(activeTask);
+  }
 }
