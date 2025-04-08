@@ -34,6 +34,22 @@ function getActiveList() {
   return getLists().find((list) => list.isActive === true);
 }
 
+function moveTaskToList(newListName) {
+  const activeList = getActiveList();
+  const taskForMove = activeList.extractTaskForTransfer();
+
+  activeList.setTaskSelected(activeList.taskList[0]);
+
+  lists.find((list) => list.name === newListName).addTask(taskForMove);
+}
+
 initDefaultList();
 
-export { addList, getLists, initDefaultList, setActiveList, getActiveList };
+export {
+  addList,
+  getLists,
+  initDefaultList,
+  setActiveList,
+  getActiveList,
+  moveTaskToList,
+};
