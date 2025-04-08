@@ -72,7 +72,12 @@
         <section class="task-details">
           <div class="" id="task-details-content"></div>
           <div class="task-actions">
-            <button id="delete-task" class="delete-task" title="Удалить задачу">
+            <button
+              id="delete-task"
+              class="delete-task"
+              title="Удалить задачу"
+              data-action="delete"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -88,6 +93,7 @@
               class="edit-task"
               id="edit-task"
               title="Редактировать задачу"
+              data-action="edit"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -186,6 +192,22 @@
         <button type="submit" class="add-button modal-add-button">
           Продолжить
         </button>
+      </form>
+    </dialog>
+    <dialog id="confirm-delete-dialog" class="confirm-delete-modal">
+      <form method="dialog" class="confirm-delete-form">
+        <header class="modal-header">
+          <h2>Подтвердите удаление</h2>
+        </header>
+
+        <p>Вы уверены, что хотите удалить эту задачу?</p>
+
+        <footer class="modal-footer">
+          <button type="submit" class="confirm-button">Удалить</button>
+          <button type="button" class="cancel-button" aria-label="Отмена">
+            Отмена
+          </button>
+        </footer>
       </form>
     </dialog>
   </body>
