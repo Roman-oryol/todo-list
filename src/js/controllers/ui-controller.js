@@ -31,27 +31,50 @@ function bindEvents() {
   deleteTaskBtn.addEventListener('click', handleDeleteTask);
 }
 
-function handleAddTaskClick() {
-  openTaskModal();
+function handleAddTaskClick(e) {
+  openTaskModal(e);
 }
 
-function handleEditTaskClick() {
-  const isEdit = true;
-  openTaskModal(isEdit);
+function handleEditTaskClick(e) {
+  openTaskModal(e);
 }
 
 function handleAddList() {
   openListModal();
 }
 
+function showConfirmDeleteDialog(onConfirm) {
+  const confirmDeleteDialog = document.getElementById('confirm-delete-dialog');
+  confirmDeleteDialog.showModal();
+
+  const confirmButton = confirmDeleteDialog.querySelector('.confirm-button');
+  const cancelButton = confirmDeleteDialog.querySelector('.cancel-button');
+
+  const onCancel = () => {
+    confirmDeleteDialog.close();
+    cleanup();
+  };
+
+  const cleanup = () => {
+    confirmButton.removeEventListener('click', onConfirm);
+    cancelButton.removeEventListener('click', onCancel);
+  };
+
+  confirmButton.addEventListener('click', onConfirm);
+  cancelButton.addEventListener('click', onCancel);
+}
+
 function handleDeleteTask() {
   const activeList = getActiveList();
   const taskForDelete = activeList.getActiveTask();
 
-  activeList.deleteTask(taskForDelete);
+  const onConfirm = () => {
+    activeList.deleteTask(taskForDelete);
+    renderTasks(activeList.taskList);
+    renderTaskDetails(activeList.getActiveTask());
+  };
 
-  renderTasks(activeList.taskList);
-  renderTaskDetails(activeList.getActiveTask());
+  showConfirmDeleteDialog(onConfirm);
 }
 
 function updateTaskButtonsState() {
@@ -134,7 +157,6 @@ function uiInit() {
   bindEvents();
   renderLists();
   renderTasks(getActiveList().taskList);
-  console.log(getActiveList().taskList);
 }
 
 export { uiInit, renderTasks, renderLists, renderTaskDetails };
