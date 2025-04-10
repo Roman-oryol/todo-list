@@ -20,10 +20,12 @@ function addList(list) {
 }
 
 function setActiveList(list) {
-  const newActiveList = lists.find((obj) => list.id === obj.id);
+  if (list) {
+    const newActiveList = lists.find((obj) => list.id === obj.id);
 
-  deactivateAllLists();
-  newActiveList.toggleActive(true);
+    deactivateAllLists();
+    newActiveList.toggleActive(true);
+  }
 }
 
 function getLists() {
@@ -43,6 +45,13 @@ function moveTaskToList(newListName) {
   lists.find((list) => list.name === newListName).addTask(taskForMove);
 }
 
+function deleteList(list) {
+  if (list) {
+    const index = lists.findIndex((l) => l.id === list.id);
+    lists.splice(index, 1);
+  }
+}
+
 initDefaultList();
 
 export {
@@ -52,4 +61,5 @@ export {
   setActiveList,
   getActiveList,
   moveTaskToList,
+  deleteList,
 };

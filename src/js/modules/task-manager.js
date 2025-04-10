@@ -22,7 +22,7 @@ class TaskManager {
   }
 
   deleteTask(task) {
-    const index = this.tasks.indexOf(task);
+    const index = this.tasks.findIndex((t) => t.id === task.id);
     this.tasks.splice(index, 1);
   }
 

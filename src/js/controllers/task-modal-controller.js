@@ -100,15 +100,17 @@ function renderSelectOptions() {
 
   listSelect.innerHTML = '';
 
-  options.forEach((option) => {
-    const newOptionEl = createSelectOption(option);
+  if (activeList) {
+    options.forEach((option) => {
+      const newOptionEl = createSelectOption(option);
 
-    if (activeList.name === option.name) {
-      newOptionEl.selected = true;
-    }
+      if (activeList.name === option.name) {
+        newOptionEl.selected = true;
+      }
 
-    listSelect.appendChild(newOptionEl);
-  });
+      listSelect.appendChild(newOptionEl);
+    });
+  }
 }
 
 form.addEventListener('submit', handleSubmit);

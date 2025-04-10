@@ -13,10 +13,17 @@ function addOption(list) {
   options.push(newOption);
 }
 
+function removeOption(list) {
+  const index = options.findIndex((option) => option.id === list.id);
+  if (index !== -1) {
+    options.splice(index, 1);
+  }
+}
+
 function getOptions() {
   return [...options];
 }
 
 initDefaultOption();
 
-export { addOption, getOptions, initDefaultOption };
+export { addOption, getOptions, initDefaultOption, removeOption };
