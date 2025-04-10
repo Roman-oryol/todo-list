@@ -27,26 +27,12 @@
               </svg>
             </button>
           </header>
-          <div class="task-list-tabs" id="task-list-tabs">
-            <button class="tab-button active-tab" type="button" disabled>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z"
-                />
-              </svg>
-              Задачи
-            </button>
-          </div>
+          <div class="task-list-tabs" id="task-list-tabs"></div>
         </nav>
       </aside>
 
       <main class="main-content">
-        <div class="main-header">
+        <div class="main-header" id="main-header">
           <button
             class="add-task-button add-button"
             type="button"
@@ -63,6 +49,7 @@
             </svg>
             Добавить задачу
           </button>
+          <span class="message"></span>
         </div>
         <section class="tasks">
           <h1 class="tasks-title">Мои задачи</h1>
@@ -188,6 +175,7 @@
           class="list-title"
           placeholder="Введите название списка"
           name="list-name"
+          required
         />
         <button type="submit" class="add-button modal-add-button">
           Продолжить
@@ -200,7 +188,7 @@
           <h2>Подтвердите удаление</h2>
         </header>
 
-        <p>Вы уверены, что хотите удалить эту задачу?</p>
+        <p></p>
 
         <footer class="modal-footer">
           <button type="submit" class="confirm-button">Удалить</button>
