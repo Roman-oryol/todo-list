@@ -1,10 +1,12 @@
 .sidebar {
   position: fixed;
+  display: grid;
   width: 330px;
   top: 0;
   bottom: 0;
   left: 0;
   z-index: 1;
+  overflow-y: auto;
 
   padding: 21px;
   font-family: var(--font-family-secondary);
@@ -15,6 +17,11 @@
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
   box-shadow: 0 0 8px rgb(0 0 0 / 0.4);
+}
+
+.sidebar-menu {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 .sidebar .menu-header {
@@ -29,5 +36,5 @@
 }
 
 .task-list-tabs {
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }

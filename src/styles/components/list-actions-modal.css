@@ -1,0 +1,38 @@
+.list-actions-modal {
+  position: absolute;
+  top: 45px;
+  left: 80px;
+  z-index: 3;
+  margin: 0;
+  padding: 10px 0;
+  width: 220px;
+  border: none;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.2);
+  border-radius: 10px;
+  background-color: var(--color-border-secondary);
+}
+
+.list-action-btn {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  column-gap: 6px;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--color-white);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+
+  svg {
+    fill: currentColor;
+  }
+
+  &:hover {
+    color: var(--color-priority-extreme);
+    background-color: #b8b9bd;
+  }
+}

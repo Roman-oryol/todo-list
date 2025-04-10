@@ -41,7 +41,7 @@
     fill: var(--color-bg-primary);
     border-radius: 50%;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--color-bg-secondary);
     color: var(--color-status-done);
 
@@ -50,10 +50,15 @@
     }
   }
 
-  &:active {
+  &:active:not(:disabled) {
     svg {
       fill: var(--color-bg-primary);
     }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 

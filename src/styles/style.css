@@ -5,13 +5,14 @@
 @import './tokens/tokens.css';
 
 @import './components/add-button.css';
-@import './components/tab-button.css';
+@import './components/list-switcher.css';
 @import './components/task-meta.css';
 @import './components/task-card.css';
 @import './components/task-details.css';
 @import './components/task-modal.css';
 @import './components/add-list-modal.css';
 @import './components/confirm-delet-modal.css';
+@import './components/list-actions-modal.css';
 
 @import './layout/app-container.css';
 @import './layout/sidebar.css';
