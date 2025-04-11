@@ -128,15 +128,15 @@
             <label>Приоритет</label>
             <div class="priority-options">
               <label>
-                <span class="priority-label extreme">Extreme</span>
+                <span class="priority-label extreme">Критический</span>
                 <input type="radio" name="priority" value="extreme" required />
               </label>
               <label>
-                <span class="priority-label moderate">Moderate</span>
+                <span class="priority-label moderate">Средний</span>
                 <input type="radio" name="priority" value="moderate" />
               </label>
               <label>
-                <span class="priority-label low">Low</span>
+                <span class="priority-label low">Низкий</span>
                 <input type="radio" name="priority" value="low" />
               </label>
             </div>
@@ -197,6 +197,20 @@
           </button>
         </footer>
       </form>
+    </dialog>
+    <dialog id="change-status-dialog" class="change-status-modal">
+      <div class="modal-content">
+        <h2>Выберите статус задачи</h2>
+        <button class="change-status-btn" data-status="not-started">
+          Не начата
+        </button>
+        <button class="change-status-btn" data-status="in-progress">
+          В процессе
+        </button>
+        <button class="change-status-btn" data-status="completed">
+          Завершена
+        </button>
+      </div>
     </dialog>
   </body>
 </html>
