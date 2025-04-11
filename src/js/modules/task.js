@@ -22,6 +22,11 @@ class Task {
     this.dueDate = date;
     this.priority = priority;
   }
+
+  changeStatus(newStatus) {
+    this.status = newStatus;
+    console.log(this.status);
+  }
 }
 
 export default Task;
