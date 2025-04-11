@@ -15,12 +15,18 @@ const listSelect = modal.querySelector('#task-project');
 
 let isEditModal = false;
 
+function resetForm() {
+  form.reset();
+}
+
 function openTaskModal(e) {
   const modalTitle = modal.querySelector('h2');
   const taskTitle = modal.querySelector('[name="title"]');
   const taskDueDate = modal.querySelector('[name="date"]');
   const taskPriorityInputs = modal.querySelectorAll('[name="priority"]');
   const taskDescription = modal.querySelector('[name="description"]');
+
+  resetForm();
 
   isEditModal = e.currentTarget.dataset.action === 'edit';
 
