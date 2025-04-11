@@ -56,6 +56,10 @@ function handleAddList() {
 function showConfirmDeleteDialog(onConfirm, isTask = true) {
   const confirmDeleteDialog = document.getElementById('confirm-delete-dialog');
   const dialogText = confirmDeleteDialog.querySelector('p');
+  const confirmDeleteForm = confirmDeleteDialog.querySelector(
+    '.confirm-delete-form'
+  );
+
   dialogText.textContent = isTask
     ? 'Вы уверены, что хотите удалить эту задачу?'
     : 'Вы уверены, что хотите удалить этот список задач?';
@@ -65,9 +69,18 @@ function showConfirmDeleteDialog(onConfirm, isTask = true) {
   const confirmButton = confirmDeleteDialog.querySelector('.confirm-button');
   const cancelButton = confirmDeleteDialog.querySelector('.cancel-button');
 
+  const handleOutsideClick = (event) => {
+    if (!confirmDeleteForm.contains(event.target)) {
+      confirmDeleteDialog.close();
+      cleanup();
+      document.removeEventListener('click', handleOutsideClick);
+    }
+  };
+
   const cleanup = () => {
     confirmButton.removeEventListener('click', handleConfirm);
     cancelButton.removeEventListener('click', handleCancel);
+    document.removeEventListener('click', handleOutsideClick);
   };
 
   const handleConfirm = () => {
@@ -83,6 +96,10 @@ function showConfirmDeleteDialog(onConfirm, isTask = true) {
 
   confirmButton.addEventListener('click', handleConfirm);
   cancelButton.addEventListener('click', handleCancel);
+
+  setTimeout(() => {
+    document.addEventListener('click', handleOutsideClick);
+  }, 0);
 }
 
 function handleDeleteTask() {
@@ -183,7 +200,22 @@ function handleActionsClick(e, list) {
   const dialog = list.querySelector('.list-actions-modal');
   const deleteBtn = dialog.querySelector('.list-action-btn');
 
-  deleteBtn.addEventListener('click', () => handleDeleteTaskList(list));
+  const openDialog = document.querySelector('.list-actions-modal[open]');
+  if (openDialog && openDialog !== dialog) {
+    openDialog.close();
+  }
+
+  deleteBtn.replaceWith(deleteBtn.cloneNode(true));
+  const newDeleteBtn = dialog.querySelector('.list-action-btn');
+  newDeleteBtn.addEventListener('click', () => handleDeleteTaskList(list));
+
+  const handleEscapeKey = (event) => {
+    if (event.key === 'Escape') {
+      dialog.close();
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('click', handleOutsideClick);
+    }
+  };
 
   dialog.show();
 
@@ -195,10 +227,14 @@ function handleActionsClick(e, list) {
     if (!dialog.contains(event.target)) {
       dialog.close();
       document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscapeKey);
     }
   };
 
-  document.addEventListener('click', handleOutsideClick);
+  setTimeout(() => {
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('keydown', handleEscapeKey);
+  }, 0);
 }
 
 function renderTaskDetails(task = null) {
