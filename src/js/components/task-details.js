@@ -1,3 +1,5 @@
+import { statusLabels, priorityLabels } from './task-card';
+
 /**
  * Generates the markup for displaying the details of a task.
  *
@@ -11,12 +13,10 @@ export function createTaskDetailsMarkup(task) {
     <header class="task-header">
             <h2 class="task-title">${title}</h2>
             <p class="task-priority">
-              Приоритет: <span class="${priority}">${priority}</span>
+              Приоритет: <span class="${priority}">${priorityLabels[priority]}</span>
             </p>
             <p class="task-status">
-              Статус: <span class="${status}">${status
-    .split('-')
-    .join(' ')}</span>
+              Статус: <span class="${status}">${statusLabels[status]}</span>
             </p>
             <p class="task-due-date">
               Срок: <span class="due-date">${dueDate}</span>
