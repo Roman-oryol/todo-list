@@ -35,4 +35,8 @@
     color: var(--color-priority-extreme);
     background-color: #b8b9bd;
   }
+
+  &:active {
+    transform: translateY(1px);
+  }
 }

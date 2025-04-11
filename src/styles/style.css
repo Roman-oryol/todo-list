@@ -13,6 +13,7 @@
 @import './components/add-list-modal.css';
 @import './components/confirm-delet-modal.css';
 @import './components/list-actions-modal.css';
+@import './components/change-status-modal.css';
 
 @import './layout/app-container.css';
 @import './layout/sidebar.css';

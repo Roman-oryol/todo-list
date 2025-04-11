@@ -1,0 +1,69 @@
+.change-status-modal {
+  width: 250px;
+  padding: 0;
+  padding-bottom: 15px;
+  border: none;
+  border-radius: 14px;
+
+  h2 {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px;
+    padding-bottom: 0;
+    font-weight: var(--font-weight-semibold);
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 15px;
+      width: 30%;
+      height: 2px;
+      background-color: #f24e1e;
+    }
+  }
+
+  &:open {
+    animation: dialog-fade-in 0.3s ease-out;
+  }
+
+  &:open::backdrop {
+    animation: backdrop-fade-in 0.3s ease-out forwards;
+  }
+}
+
+.change-status-modal .modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.change-status-btn {
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 1px solid var(--color-border-primary);
+  background: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-border-primary);
+  }
+
+  &:active:not(:disabled) {
+    color: #f24e1e;
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    color: inherit;
+    cursor: auto;
+  }
+}
+
+.change-status-btn.highlight {
+  background-image: url('../../assets/img/check-circle-outline.svg');
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  background-position: top 10px right 15px;
+}

@@ -113,6 +113,25 @@
     display: flex;
     align-items: center;
     color: var(--color-border-secondary);
+
+    &::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    &:has(.extreme)::before {
+      background-color: var(--color-priority-extreme);
+    }
+
+    &:has(.moderate)::before {
+      background-color: var(--color-priority-moderate);
+    }
+
+    &:has(.low)::before {
+      background-color: var(--color-priority-low);
+    }
   }
 
   label::before {
@@ -124,6 +143,15 @@
 
   input {
     margin-left: 10px;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #a1a3ab;
+
+    &:checked {
+      background-image: url('../../assets/img/check.svg');
+      background-repeat: no-repeat;
+    }
   }
 }
 
