@@ -1,11 +1,19 @@
 import ListOption from './list-option';
+import { loadData } from './storage';
 import { getLists } from './task-list-manager';
 
 const defaultList = getLists()[0];
 const options = [];
+const data = loadData();
 
 function initDefaultOption() {
-  addOption(defaultList);
+  if (data) {
+    data.forEach((list) => {
+      options.push(list);
+    });
+  } else {
+    addOption(defaultList);
+  }
 }
 
 function addOption(list) {
