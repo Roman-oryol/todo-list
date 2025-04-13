@@ -38,6 +38,10 @@
 
   --color-white: #ffffff;
   --color-black: #000000;
+
+  --color-scrollbar-thumb: #0224ff7e;
+  --color-scrollbar-thumb-hover: #0224ff9f;
+  --color-scrollbar-track: rgb(161 163 171 / 0.5);
 }
 
 html {
