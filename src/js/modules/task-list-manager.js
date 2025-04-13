@@ -11,7 +11,7 @@ function initDefaultList() {
       lists.push(list);
     });
     deactivateAllLists();
-    lists[0].toggleActive(true);
+    lists[0]?.toggleActive(true);
   } else {
     const defaultList = new List('Moи задачи');
     lists.push(defaultList);
