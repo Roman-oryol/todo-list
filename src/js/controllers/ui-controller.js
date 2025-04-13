@@ -13,6 +13,7 @@ import {
 import { createTaskDetailsMarkup } from '../components/task-details';
 import { getActiveList } from '../modules/task-list-manager';
 import { removeOption } from '../modules/list-selector';
+import { saveData } from '../modules/storage';
 
 let addTaskBtn;
 let editTaskBtn;
@@ -108,6 +109,7 @@ function handleDeleteTask() {
 
   const onConfirm = () => {
     activeList.deleteTask(taskForDelete);
+    saveData(getLists());
     renderTasks(activeList.taskList);
     renderTaskDetails(activeList.getActiveTask());
   };
@@ -279,6 +281,7 @@ function uiInit() {
   bindEvents();
   renderLists();
   renderTasks(getActiveList().taskList);
+  renderTaskDetails(getActiveList().taskList[0]);
 }
 
 export { uiInit, renderTasks, renderLists, renderTaskDetails };
