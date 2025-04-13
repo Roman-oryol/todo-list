@@ -1,3 +1,5 @@
+import { parseISO, startOfToday, isBefore } from 'date-fns';
+
 import { renderTaskDetails, renderTasks } from './ui-controller';
 import Task from '../modules/task';
 import { getOptions } from '../modules/list-selector';
@@ -13,11 +15,14 @@ const modal = document.getElementById('task-dialog');
 const form = modal.querySelector('form');
 const closeModalBtn = modal.querySelector('.close-modal');
 const listSelect = modal.querySelector('#task-project');
+const formGroupEl = modal.querySelector('.form-group:has(input[type="date"])');
+const inputDateEl = form.querySelector('input[type="date"]');
 
 let isEditModal = false;
 
 function resetForm() {
   form.reset();
+  formGroupEl.classList.remove('error');
 }
 
 function openTaskModal(e) {
@@ -50,7 +55,14 @@ function openTaskModal(e) {
   modal.showModal();
 }
 
-closeModalBtn.addEventListener('click', () => modal.close());
+closeModalBtn.addEventListener('click', () => {
+  formGroupEl.classList.remove('error');
+  modal.close();
+});
+
+inputDateEl.addEventListener('input', () => {
+  formGroupEl.classList.remove('error');
+});
 
 function addTaskToList(taskData, newTask) {
   const lists = getLists();
@@ -82,6 +94,15 @@ function handleSubmit(e) {
 
   const activeList = getActiveList();
   const taskData = Object.fromEntries(new FormData(form));
+
+  const isValid = validateDueDate(taskData.date);
+
+  if (isValid) {
+    formGroupEl.classList.remove('error');
+  } else {
+    formGroupEl.classList.add('error');
+    return;
+  }
 
   if (isEditModal) {
     editTask(taskData);
@@ -119,6 +140,13 @@ function renderSelectOptions() {
       listSelect.appendChild(newOptionEl);
     });
   }
+}
+
+function validateDueDate(date) {
+  const currentDate = startOfToday();
+  const inputDate = parseISO(date);
+
+  return !isBefore(inputDate, currentDate);
 }
 
 form.addEventListener('submit', handleSubmit);
