@@ -22,6 +22,10 @@
   line-height: var(--line-height-loose);
 }
 
+.task-text {
+  white-space: pre-wrap;
+}
+
 .task-actions {
   display: flex;
   column-gap: 12px;
