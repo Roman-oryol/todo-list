@@ -1,4 +1,5 @@
-import { getActiveList } from '../modules/task-list-manager';
+import { saveData } from '../modules/storage';
+import { getActiveList, getLists } from '../modules/task-list-manager';
 import { renderTaskDetails, renderTasks } from './ui-controller';
 
 const changeStatusModal = document.getElementById('change-status-dialog');
@@ -24,7 +25,6 @@ function handleChangeStatus(task, newStatus) {
   const activeList = getActiveList();
   const taskForChange = activeList.taskList.find((t) => t.id === task.id);
 
-  console.log(taskForChange);
   taskForChange.changeStatus(newStatus);
   renderTasks(getActiveList().taskList);
 
@@ -33,8 +33,7 @@ function handleChangeStatus(task, newStatus) {
   }
 
   changeStatusModal.close();
-  console.log(getActiveList().taskList);
-  console.log('newStatus: ', newStatus);
+  saveData(getLists());
 }
 
 function openChangeStatusModal(task) {
