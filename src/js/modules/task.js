@@ -25,7 +25,6 @@ class Task {
 
   changeStatus(newStatus) {
     this.status = newStatus;
-    console.log(this.status);
   }
 }
 
