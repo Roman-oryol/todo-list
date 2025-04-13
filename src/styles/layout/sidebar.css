@@ -34,7 +34,3 @@
 .sidebar .menu-title {
   font-size: var(--font-size-lg);
 }
-
-.task-list-tabs {
-  /* overflow-y: auto; */
-}
