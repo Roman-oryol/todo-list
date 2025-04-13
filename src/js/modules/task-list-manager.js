@@ -1,11 +1,23 @@
 import List from './list';
+import { loadData, saveData } from './storage';
 
 const lists = [];
 
 function initDefaultList() {
-  const defaultList = new List('Moи задачи');
-  lists.push(defaultList);
-  defaultList.toggleActive(true);
+  const data = loadData();
+
+  if (data) {
+    data.forEach((list) => {
+      lists.push(list);
+    });
+    deactivateAllLists();
+    lists[0].toggleActive(true);
+  } else {
+    const defaultList = new List('Moи задачи');
+    lists.push(defaultList);
+    defaultList.toggleActive(true);
+    saveData(lists);
+  }
 }
 
 function deactivateAllLists() {
@@ -17,6 +29,7 @@ function deactivateAllLists() {
 function addList(list) {
   deactivateAllLists();
   lists.push(list);
+  saveData(lists);
 }
 
 function setActiveList(list) {
@@ -49,6 +62,7 @@ function deleteList(list) {
   if (list) {
     const index = lists.findIndex((l) => l.id === list.id);
     lists.splice(index, 1);
+    saveData(lists);
   }
 }
 
