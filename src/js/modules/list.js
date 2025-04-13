@@ -4,7 +4,7 @@ import TaskManager from './task-manager';
 export default class List {
   isActive = true;
   isEmpty = true;
-  #taskManager = new TaskManager();
+  taskManager = new TaskManager();
 
   constructor(name) {
     this.id = uuidv4();
@@ -16,16 +16,16 @@ export default class List {
   }
 
   addTask(task) {
-    this.#taskManager.addTask(task);
+    this.taskManager.addTask(task);
     this.isEmpty = false;
   }
 
   get taskList() {
-    return this.#taskManager.getTasks();
+    return this.taskManager.getTasks();
   }
 
   setTaskSelected(task) {
-    this.#taskManager.setTaskSelected(task);
+    this.taskManager.setTaskSelected(task);
   }
 
   deleteTask(task) {
@@ -33,7 +33,7 @@ export default class List {
       return;
     }
 
-    this.#taskManager.deleteTask(task);
+    this.taskManager.deleteTask(task);
 
     if (this.isTaskListEmpty()) {
       this.isEmpty = true;
@@ -52,6 +52,6 @@ export default class List {
 
   extractTaskForTransfer() {
     const activeTask = this.getActiveTask();
-    return this.#taskManager.extractTaskForTransfer(activeTask);
+    return this.taskManager.extractTaskForTransfer(activeTask);
   }
 }
