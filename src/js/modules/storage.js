@@ -1,4 +1,3 @@
-import { getLists } from './task-list-manager';
 import List from './list';
 import Task from './task';
 import TaskManager from './task-manager';
@@ -15,7 +14,7 @@ function loadData() {
     dataArray.forEach((list) => {
       Object.setPrototypeOf(list, List.prototype);
       Object.setPrototypeOf(list.taskManager, TaskManager.prototype);
-      list.taskList.forEach((task) => {
+      list.taskManager.tasks.forEach((task) => {
         Object.setPrototypeOf(task, Task.prototype);
       });
     });
