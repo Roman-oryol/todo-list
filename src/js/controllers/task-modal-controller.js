@@ -7,6 +7,7 @@ import {
   getLists,
   moveTaskToList,
 } from '../modules/task-list-manager';
+import { saveData } from '../modules/storage';
 
 const modal = document.getElementById('task-dialog');
 const form = modal.querySelector('form');
@@ -97,6 +98,7 @@ function handleSubmit(e) {
     updateTasksIfActiveList(taskData);
   }
 
+  saveData(getLists());
   modal.close();
 }
 
